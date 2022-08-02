@@ -47,7 +47,7 @@ service = build('drive', 'v3', credentials=creds)
 
 # Retrieve the documents contents from the Docs service.
 for document in documents:
-    print("Getting file {}...".format(document['filename']))
+    print(f"Getting file {document['filename']}...")
     try:
         contents = service.files().export(fileId=document['id'],mimeType=document['mimeType']).execute()
         with open(document['filename'], 'wb') as f:
